@@ -1,4 +1,4 @@
-﻿
+﻿@inject P127_Pronia.Service.LayoutService layoutService
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -114,11 +114,11 @@
                 <div class="header-middle-wrap position-relative">
                   <div class="header-contact d-none d-lg-flex">
                     <i class="pe-7s-call"></i>
-                    <a href="tel://+00-123-456-789">+00 123 456 789</a>
+                    <a href="tel://@layoutService.GetSettings().FirstOrDefault(p=>p.Key.Trim().ToLower() == "phonenumber")?.Value">@layoutService.GetSettings().FirstOrDefault(p=>p.Key.Trim().ToLower() == "phonenumber")?.Value</a>
                   </div>
 
                   <a href="index.html" class="header-logo">
-                    <img src="~/assets/images/logo/dark.png" alt="Header Logo" />
+                    <img src="~/assets/images/logo/@layoutService.GetSettings().FirstOrDefault(p=>p.Key.Trim().ToLower() == "headerlogo")?.Value" alt="Header Logo" />
                   </a>
 
                   <div class="header-right">
@@ -130,7 +130,7 @@
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
-                          <i class="pe-7s-search"></i>
+                          @Html.Raw(layoutService.GetSettings().FirstOrDefault(p=>p.Key.Trim().ToLower() == "searchicon")?.Value)
                         </a>
                       </li>
                       <li class="dropdown d-none d-lg-block">
@@ -168,7 +168,7 @@
                       <li class="minicart-wrap me-3 me-lg-0">
                         <a href="#miniCart" class="minicart-btn toolbar-btn">
                           <i class="pe-7s-shopbag"></i>
-                          <span class="quantity">3</span>
+                          <span class="quantity">@(layoutService.GetBasket() !=null ? layoutService.GetBasket().BasketItemVMs.Count.ToString() : "0")</span>
                         </a>
                       </li>
                       <li class="mobile-menu_wrap d-block d-lg-none">
@@ -942,7 +942,10 @@
                 ></a>
               </div>
               <ul class="minicart-list">
-                <li class="minicart-product">
+               @if(layoutService.GetBasket() !=null){
+                    @foreach (BasketItemVM item in layoutService.GetBasket().BasketItemVMs)
+               {
+                   <li class="minicart-product">
                   <a class="product-item_remove" href="#"
                     ><i
                       class="pe-7s-close"
@@ -960,86 +963,28 @@
                   >
                     <img
                       class="img-full"
-                      src="~/assets/images/product/small-size/2-1-70x78.png"
-                      alt="Product Image"
+                      src="~/assets/images/website-images/@item.Plant.PlantImages.FirstOrDefault(p=>p.IsMain == true).Name"
+                      alt="@item.Plant.PlantImages.FirstOrDefault(p=>p.IsMain == true).Alternative"
                     />
                   </a>
                   <div class="product-item_content">
                     <a
                       class="product-item_title"
                       href="single-product-variable.html"
-                      >American Marigold</a
+                      >@item.Plant.Name</a
                     >
-                    <span class="product-item_quantity">1 x $23.45</span>
+                    <span class="product-item_quantity">@item.Quantity x $@item.Plant.Price</span>
                   </div>
                 </li>
-                <li class="minicart-product">
-                  <a class="product-item_remove" href="#"
-                    ><i
-                      class="pe-7s-close"
-                      data-tippy="Remove"
-                      data-tippy-inertia="true"
-                      data-tippy-animation="shift-away"
-                      data-tippy-delay="50"
-                      data-tippy-arrow="true"
-                      data-tippy-theme="sharpborder"
-                    ></i
-                  ></a>
-                  <a
-                    href="single-product-variable.html"
-                    class="product-item_img"
-                  >
-                    <img
-                      class="img-full"
-                      src="~/assets/images/product/small-size/2-2-70x78.png"
-                      alt="Product Image"
-                    />
-                  </a>
-                  <div class="product-item_content">
-                    <a
-                      class="product-item_title"
-                      href="single-product-variable.html"
-                      >Black Eyed Susan</a
-                    >
-                    <span class="product-item_quantity">1 x $25.45</span>
-                  </div>
-                </li>
-                <li class="minicart-product">
-                  <a class="product-item_remove" href="#">
-                    <i
-                      class="pe-7s-close"
-                      data-tippy="Remove"
-                      data-tippy-inertia="true"
-                      data-tippy-animation="shift-away"
-                      data-tippy-delay="50"
-                      data-tippy-arrow="true"
-                      data-tippy-theme="sharpborder"
-                    ></i>
-                  </a>
-                  <a
-                    href="single-product-variable.html"
-                    class="product-item_img"
-                  >
-                    <img
-                      class="img-full"
-                      src="~/assets/images/product/small-size/2-3-70x78.png"
-                      alt="Product Image"
-                    />
-                  </a>
-                  <div class="product-item_content">
-                    <a
-                      class="product-item_title"
-                      href="single-product-variable.html"
-                      >Bleeding Heart</a
-                    >
-                    <span class="product-item_quantity">1 x $30.45</span>
-                  </div>
-                </li>
+               }
+               }else{
+                   <li>There is no product in basket</li>
+               }
               </ul>
             </div>
             <div class="minicart-item_total">
               <span>Subtotal</span>
-              <span class="ammount">$79.35</span>
+              <span class="ammount">$@layoutService.GetBasket()?.TotalPrice</span>
             </div>
             <div class="group-btn_wrap d-grid gap-2">
               <a href="cart.html" class="btn btn-dark">View Cart</a>

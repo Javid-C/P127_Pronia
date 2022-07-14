@@ -144,3 +144,4 @@ C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\run
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Plant\Detail.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PlantsPartialView.cshtml.g.cs
