@@ -47,9 +47,13 @@ namespace P127_Pronia
 
             app.UseRouting();
             app.UseStaticFiles();
-
+         
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=dashboard}/{action=Index}/{id?}"
+                );
                 endpoints.MapControllerRoute("defualt", "{controller=home}/{action=index}/{id?}");
             });
         }

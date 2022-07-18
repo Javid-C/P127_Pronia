@@ -145,3 +145,13 @@ C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\run
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Plant\Detail.cshtml.g.cs
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PlantsPartialView.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Category\Index.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Category\Create.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Category\Update.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Index.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Create.cshtml.g.cs

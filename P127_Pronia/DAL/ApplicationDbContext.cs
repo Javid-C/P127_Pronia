@@ -35,6 +35,10 @@ namespace P127_Pronia.DAL
                 .HasIndex(p => p.Key)
                 .IsUnique();
 
+            modelBuilder.Entity<Category>()
+                .HasIndex(c => c.Name)
+                .IsUnique();
+
             base.OnModelCreating(modelBuilder); 
         }
     }

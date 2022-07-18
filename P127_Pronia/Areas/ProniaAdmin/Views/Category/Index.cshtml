@@ -1,0 +1,51 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="main-panel">
+    <div>
+        <a class="btn btn-success" asp-area="ProniaAdmin" asp-controller="Category" asp-action="Create">Create new category</a>
+    </div>
+    <div class="table-responsive pt-3">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Settings
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category category in Model)
+                {
+                    <tr>
+                        <td>
+                            @category.Id
+                        </td>
+                        <td>
+                            @category.Name
+                        </td>
+                        <td  class="d-flex">
+                                <div>
+                                    <a asp-area="ProniaAdmin" asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-warning"><i class="mdi mdi-border-color"></i></a>
+                                </div>
+                                <div>
+                                    <a class="btn btn-danger" asp-area="ProniaAdmin" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id"><i class="mdi mdi-delete"></i></a>
+                                </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
