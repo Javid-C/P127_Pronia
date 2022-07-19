@@ -155,3 +155,6 @@ C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Index.cshtml.g.cs
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Create.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Update.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Index.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Create.cshtml.g.cs

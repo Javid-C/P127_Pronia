@@ -1,0 +1,63 @@
+﻿@model List<Plant>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="main-panel">
+    <div>
+        <a class="btn btn-success" asp-area="ProniaAdmin" asp-controller="Plant" asp-action="Create">Create new plant</a>
+    </div>
+    <div class="table-responsive pt-3">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        SKU
+                    </th>
+                    <th>
+                        Settings
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Plant plant in Model)
+                {
+                    <tr>
+                        <td>
+                            <img style="width:150px !important; height:150px; object-fit:contain" src="~/assets/images/website-images/@plant.PlantImages.FirstOrDefault(p=>p.IsMain == true)?.Name" alt="">
+                        </td>
+                        <td>
+                            @plant.Name
+                        </td>
+                         <td>
+                            @plant.Price
+                        </td>
+                        <td>
+                            @plant.SKU
+                        </td>
+                        <td  class="d-flex">
+                                <div>
+                                    <a asp-area="ProniaAdmin" asp-controller="plant" asp-action="Update" asp-route-id="@plant.Id" class="btn btn-warning"><i class="mdi mdi-border-color"></i></a>
+                                </div>
+                                <div>
+                                    <a class="btn btn-danger" asp-area="ProniaAdmin" asp-controller="plant" asp-action="Delete" asp-route-id="@plant.Id"><i class="mdi mdi-delete"></i></a>
+                                </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
