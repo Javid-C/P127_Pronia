@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using P127_Pronia.DAL;
@@ -17,7 +18,7 @@ namespace P127_Pronia.Areas.ProniaAdmin.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public PlantController(ApplicationDbContext context,IWebHostEnvironment env)
+        public PlantController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
@@ -64,33 +65,61 @@ namespace P127_Pronia.Areas.ProniaAdmin.Controllers
                 ModelState.AddModelError(string.Empty, "Please choose valid image file");
                 return View();
             }
-            
+
+            plant.PlantImages = new List<PlantImage>();
             TempData["FileName"] = "";
-            foreach (var photo in plant.Photos)
+            List<IFormFile> removeable = new List<IFormFile>();
+            foreach (var photo in plant.Photos.ToList())
             {
                 if (!photo.ImageIsOkay(2))
                 {
-                    plant.Photos.Remove(photo);
+                    removeable.Add(photo);
                     TempData["FileName"] += photo.FileName + ",";
+                    continue;
                 }
+                PlantImage another = new PlantImage
+                {
+                    Name = await photo.FileCreate(_env.WebRootPath, "assets/images/website-images"),
+                    IsMain = false,
+                    Alternative = photo.Name,
+                    Plant = plant
+                };
+                plant.PlantImages.Add(another);
             }
+
+            plant.Photos.RemoveAll(p=>removeable.Any(r=>r.FileName == p.FileName));
 
             PlantImage main = new PlantImage
             {
-                Name = await plant.MainPhoto.FileCreate(_env.WebRootPath, "assets/images/slider"),
+                Name = await plant.MainPhoto.FileCreate(_env.WebRootPath, "assets/images/website-images"),
                 IsMain = true,
                 Alternative = plant.Name,
                 Plant = plant
             };
             PlantImage hover = new PlantImage
             {
-                Name = await plant.HoverPhoto.FileCreate(_env.WebRootPath, "assets/images/slider"),
+                Name = await plant.HoverPhoto.FileCreate(_env.WebRootPath, "assets/images/website-images"),
                 IsMain = null,
                 Alternative = plant.Name,
                 Plant = plant
             };
 
+            plant.PlantImages.Add(main);
+            plant.PlantImages.Add(hover);
 
+            plant.PlantCategories = new List<PlantCategory>();
+            foreach (int id in plant.CategoryIds)
+            {
+                PlantCategory category = new PlantCategory
+                {
+                    CategoryId = id,
+                    Plant = plant
+                };
+                plant.PlantCategories.Add(category);
+            }
+
+            await _context.Plants.AddAsync(plant);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }

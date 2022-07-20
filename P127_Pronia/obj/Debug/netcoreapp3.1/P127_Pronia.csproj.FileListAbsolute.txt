@@ -158,3 +158,10 @@ C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Slider\Update.cshtml.g.cs
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Index.cshtml.g.cs
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Create.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
