@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 namespace P127_Pronia.Areas.ProniaAdmin.Controllers
 {
     [Area("ProniaAdmin")]
+    [Authorize(Roles ="Moderator,Admin")]
     public class PlantController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -122,6 +124,41 @@ namespace P127_Pronia.Areas.ProniaAdmin.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        
+        public async Task<IActionResult> Update(int? id)
+        {
+            ViewBag.Information = _context.PlantInformations.ToList();
+            ViewBag.Categories = _context.Categories.ToList();
+            if (id is null || id == 0) return NotFound();
+            Plant plant = await _context.Plants
+                .Include(p=>p.PlantImages)
+                .Include(p => p.PlantInformation)
+                .Include(p => p.PlantCategories)
+                .ThenInclude(p => p.Category).SingleOrDefaultAsync(p=>p.Id == id);
+            if (plant == null) return NotFound();
+            return View(plant);
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [ActionName("Update")]
+        public async Task<IActionResult> Edit(int? id, Plant plant)
+        {
+            if (id is null || id == 0) return NotFound();
+            Plant existed = await _context.Plants
+                .Include(p => p.PlantImages)
+                .Include(p => p.PlantInformation)
+                .Include(p => p.PlantCategories)
+                .ThenInclude(p => p.Category).SingleOrDefaultAsync(p => p.Id == id);
+            if (existed == null) return NotFound();
+
+            List<PlantImage> removeable = existed.PlantImages.Where(p => p.IsMain == false && !plant.ImagesId.Contains(p.Id)).ToList();
+            existed.PlantImages.RemoveAll(p => removeable.Any(r => p.Id == r.Id));
+
+            return Json(existed.PlantImages);
         }
     }
 }

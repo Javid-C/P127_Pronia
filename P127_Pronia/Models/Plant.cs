@@ -27,5 +27,7 @@ namespace P127_Pronia.Models
         public IFormFile HoverPhoto { get; set; }
         [NotMapped]
         public List<IFormFile> Photos { get; set; }
+        [NotMapped]
+        public List<int> ImagesId { get; set; }
     }
 }

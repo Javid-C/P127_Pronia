@@ -20,6 +20,8 @@ namespace P127_Pronia.DAL
         public DbSet<PlantImage> PlantImages { get; set; }
         public DbSet<PlantInformation> PlantInformations { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -165,3 +165,8 @@ C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Mic
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Areas\ProniaAdmin\Views\Plant\Update.cshtml.g.cs
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Lenovo\source\repos\P127_Pronia\P127_Pronia\obj\Debug\netcoreapp3.1\Razor\Views\Order\Checkout.cshtml.g.cs
